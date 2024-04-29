@@ -8,7 +8,7 @@ export type ExcalidrawFile = {
 };
 
 export type ExcalidrawLocally = {
-  files: Record<fileId, ExcalidrawFile>;
+  files: Record<string, ExcalidrawFile>;
 };
 
 export function getExcalidrawLocally(): ExcalidrawLocally {
@@ -24,9 +24,9 @@ export function getExcalidrawLocally(): ExcalidrawLocally {
         },
       },
     };
-  } else {
-    return JSON.parse(data);
   }
+
+  return JSON.parse(data);
 }
 
 export function saveExcalidrawLocally(data: ExcalidrawLocally) {

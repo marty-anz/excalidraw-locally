@@ -4,9 +4,14 @@ import { AppShell, Box, Burger, Group, Text, useMantineColorScheme } from '@mant
 import { useEffect, useState } from 'react';
 
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
-import { Excalidraw } from '@excalidraw/excalidraw';
+
 import { useDisclosure } from '@mantine/hooks';
 import { ExcalidrawLocally, getExcalidrawLocally, saveExcalidrawLocally } from '@/models/storage';
+
+import dynamic from 'next/dynamic';
+const Excalidraw = dynamic(async () => (await import('@excalidraw/excalidraw')).Excalidraw, {
+  ssr: false,
+});
 
 export function Welcome() {
   const [opened, { toggle }] = useDisclosure(true);
