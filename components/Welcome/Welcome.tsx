@@ -29,7 +29,7 @@ export function Welcome() {
     }
 
     setFileName(data.files[fileId].fileName);
-  }, [fileId]);
+  }, [fileId, data]);
 
   if (!data) {
     return null;
