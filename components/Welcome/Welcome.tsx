@@ -12,7 +12,7 @@ export function Welcome() {
   const [opened, { toggle }] = useDisclosure(true);
   const { colorScheme } = useMantineColorScheme();
   const [data, setData] = useState<ExcalidrawLocally>();
-  const [fileId, setFileId] = useState<string>('untitled');
+  const [fileId, _setFileId] = useState<string>('untitled');
 
   useEffect(() => {
     setData(getExcalidrawLocally());
@@ -31,12 +31,7 @@ export function Welcome() {
       <AppShell.Header>
         <Group justify="space-between">
           <Group h="100%" px="md">
-            <Text
-              inherit
-              variant="gradient"
-              component="span"
-              gradient={{ from: 'blue', to: 'yellow' }}
-            >
+            <Text inherit variant="gradient" component="span">
               Excalidraw locally
             </Text>
 
