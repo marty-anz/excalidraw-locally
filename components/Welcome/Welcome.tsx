@@ -1,13 +1,12 @@
 'use client';
 
-import { AppShell, Box, Burger, Group, Text, useMantineColorScheme } from '@mantine/core';
-import { ExcalidrawLocally, getExcalidrawLocally, saveExcalidrawLocally } from '@/models/storage';
 import { useEffect, useState } from 'react';
-
-import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
-import { FileName } from '../FileName/FileName';
 import dynamic from 'next/dynamic';
 import { useDisclosure } from '@mantine/hooks';
+import { AppShell, Box, Burger, Group, Text, useMantineColorScheme } from '@mantine/core';
+import { ExcalidrawLocally, getExcalidrawLocally, saveExcalidrawLocally } from '@/models/storage';
+import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
+import { FileName } from '../FileName/FileName';
 
 const Excalidraw = dynamic(async () => (await import('@excalidraw/excalidraw')).Excalidraw, {
   ssr: false,
@@ -17,7 +16,7 @@ export function Welcome() {
   const [opened, { toggle }] = useDisclosure(true);
   const { colorScheme } = useMantineColorScheme();
   const [data, setData] = useState<ExcalidrawLocally>();
-  const [fileId, _setFileId] = useState<string>('untitled');
+  const [fileId] = useState<string>('untitled');
   const [fileName, setFileName] = useState<string>('');
 
   useEffect(() => {
@@ -73,7 +72,7 @@ export function Welcome() {
               elements: data.files[fileId].elements,
             }}
             theme={colorScheme === 'dark' ? 'dark' : 'light'}
-            onChange={(excalidrawElements, _appState, _files) => {
+            onChange={(excalidrawElements) => {
               data.files[fileId].elements = excalidrawElements;
               saveExcalidrawLocally(data);
             }}
