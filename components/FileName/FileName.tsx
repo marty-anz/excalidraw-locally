@@ -2,7 +2,6 @@
 
 import { Popover, Text, TextInput, useMantineTheme } from '@mantine/core';
 
-import { IconBook } from '@tabler/icons-react';
 import { useHover } from '@mantine/hooks';
 
 type Props = {
@@ -31,11 +30,7 @@ export function FileName({ name, onChange }: Props) {
         </div>
       </Popover.Target>
       <Popover.Dropdown>
-        <TextInput
-          value={name}
-          onChange={(e) => onChange(e.target.value)}
-          rightSection={<IconBook />}
-        />
+        <TextInput value={name} onChange={(e) => onChange(e.target.value)} />
       </Popover.Dropdown>
     </Popover>
   );
