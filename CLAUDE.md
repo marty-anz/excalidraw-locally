@@ -79,8 +79,15 @@ TypeScript is configured with `@/*` mapping to project root, so imports use `@/c
 
 ## Framework & Libraries
 
-- **Next.js 14** with App Router
-- **Mantine 7.8** for UI components
-- **Excalidraw 0.17** (dynamically imported, SSR disabled)
+- **Next.js 16** with App Router and Turbopack
+- **React 19** with automatic JSX runtime
+- **Mantine 8.3** for UI components
+- **Excalidraw 0.18** (dynamically imported, SSR disabled)
 - **Testing**: Jest + React Testing Library
 - **Styling**: PostCSS with mantine-postcss-preset
+
+## TypeScript Configuration
+
+- **moduleResolution**: "bundler" (required for modern package exports)
+- **jsx**: "react-jsx" (React automatic runtime, set by Next.js 16)
+- Type imports from Excalidraw use the new export path: `@excalidraw/excalidraw/element/types`
