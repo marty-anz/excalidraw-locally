@@ -1,4 +1,4 @@
-import { ExcalidrawElement } from '@excalidraw/excalidraw/types/element/types';
+import type { ExcalidrawElement } from '@excalidraw/excalidraw/element/types';
 
 const appLocalStorageKey = 'https://github.com/marty-anz/excalidraw-locally';
 
