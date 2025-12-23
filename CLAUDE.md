@@ -24,9 +24,10 @@ This is a Next.js application that provides a local, browser-based version of Ex
 ### Code Quality
 - `npm run prettier:write` - Format all TypeScript files
 
-### Storybook
+### Storybook (v10 with Vite)
 - `npm run storybook` - Start Storybook dev server on port 6006
 - `npm run storybook:build` - Build Storybook to storybook-static/
+- Uses @storybook/nextjs-vite framework for better performance
 
 ## Architecture
 
