@@ -7,9 +7,22 @@ import { AppShell, Box, Burger, Group, Text, useMantineColorScheme } from '@mant
 import { ExcalidrawLocally, getExcalidrawLocally, saveExcalidrawLocally } from '@/models/storage';
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
 import { FileName } from '../FileName/FileName';
+import '@excalidraw/excalidraw/index.css';
 
 const Excalidraw = dynamic(async () => (await import('@excalidraw/excalidraw')).Excalidraw, {
   ssr: false,
+  loading: () => (
+    <Box
+      style={{
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Text>Loading Excalidraw...</Text>
+    </Box>
+  ),
 });
 
 export function Welcome() {
