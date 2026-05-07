@@ -9,6 +9,10 @@ import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeTog
 import { FileName } from '../FileName/FileName';
 import '@excalidraw/excalidraw/index.css';
 
+if (typeof window !== 'undefined') {
+  window.EXCALIDRAW_ASSET_PATH = '/';
+}
+
 const Excalidraw = dynamic(async () => (await import('@excalidraw/excalidraw')).Excalidraw, {
   ssr: false,
   loading: () => (
