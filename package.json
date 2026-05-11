@@ -16,7 +16,8 @@
     "prettier:write": "prettier --write \"**/*.{ts,tsx}\"",
     "test": "npm run prettier:check && npm run lint && npm run typecheck && npm run jest",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "postinstall": "node -e \"require('fs').cpSync('node_modules/@excalidraw/excalidraw/dist/prod/fonts', 'public/fonts', {recursive:true})\""
   },
   "dependencies": {
     "@excalidraw/excalidraw": "^0.18.1",
